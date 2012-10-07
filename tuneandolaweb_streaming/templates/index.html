@@ -1,0 +1,8 @@
+<h2> Lista de usuarios</h2>
+<ul>
+{% for usuario in lista %}
+    
+    <li><img src="/static/{{usuario.nombre_archivo}}" width="100px" /> <span>{{usuario.nombre}}</span></li>    
+{%endfor%}
+
+</ul>

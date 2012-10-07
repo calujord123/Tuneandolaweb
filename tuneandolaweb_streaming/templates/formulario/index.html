@@ -1,0 +1,27 @@
+<html>
+    <head>
+        {%block head_page%}
+        <title>Tuneandolaweb::Form</title>
+        <style>
+            body{
+                background: #dff2ff;
+            }
+            .contenido{
+                margin: auto;
+                width: 900px;
+            }
+        </style>
+        
+        
+        {%endblock%}
+    </head>
+    <body>
+        <h2>{{titulo_page}}</h2>
+        <p class="contenido">
+            {%block contenido_page %}
+                
+            {%endblock%}
+            
+        </p>
+    </body>
+</html>

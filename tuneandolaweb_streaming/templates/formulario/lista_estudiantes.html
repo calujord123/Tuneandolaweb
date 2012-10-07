@@ -1,0 +1,34 @@
+{%extends "formulario/index.html"%}
+{%block head_page%}
+    {{block.super}}
+        <style>
+            table, th, tr, td{
+                border-collapse: collapse;
+                border: 2px solid #415641;
+            }
+            th{
+                background: #c0ffc1;
+                color:#415641;
+            }
+            
+        </style>
+{%endblock%}
+{%block contenido_page%}
+<table>
+    <tr>
+        <th>
+            Cédula
+        </th>
+        <th>
+            Nombre
+        </th>
+    </tr>
+    {%for estudiante in lista_estudiante%}
+    <tr>
+        <td>
+            {{estudiante.cedula}}
+        </td>
+        <td>{{estudiante.nombre_estudiante}}</td>
+    {%endfor%}
+</table>
+{%endblock%}

@@ -1,0 +1,45 @@
+{%extends "formulario/index.html"%}
+{%block head_page%}
+    {{block.super}}
+    
+    <link rel="stylesheet" href="/static/css/formulario.css" />
+    <style>
+        .element-form{
+            margin-bottom: 30px;
+        }
+    </style>
+{%endblock%}
+{%block contenido_page%}
+
+        {% if formulario %}
+        <form id="fomularioSuscripcion" action="/registrarEstudiante" method="post">
+            <div class="inputs-forms">
+                {{ formulario.management_form }}
+                {% for form in formulario %}
+                <div class="element-form">
+                    <div class="item-form">
+                        {% if not form.is_hidden %}
+                        <label class="{%if form.field.required %}requerido{%else%}no_requerido{%endif%}">
+                            {{ form.label_tag }} 
+                        </label>
+                        {%endif%}
+                        <p class="textBox">{{ form }}</p>
+                        
+                        <ul class="errorList">
+                            
+                            {% for err in form.errors %}
+                                <li class="item-error">{{ err }}</li>
+                            {% endfor %}
+                        </ul>
+                    </div>
+                    <div class="help_text_hidden text_help" id="help_text_id_{{form.html_name}}">
+                        {{form.help_text }}
+                    </div>
+                </div>
+                {% endfor%}
+            
+            </div>
+        {%endif%}
+        <input type="submit" value="Registrar" />
+        </form>
+{%endblock%}
